@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:dubbo="http://code.alibabatech.com/schema/dubbo" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- 陪住服务注册到注册中心的端口号 -->
+    <dubbo:protocol name="dubbo" port="20888"></dubbo:protocol>
+	<dubbo:application name="pinyougou-order-service"/>  
+    <dubbo:annotation package="com.peng.pinyougou.order.service.impl" /> 
+    
+    <!-- 配置id生成类 -->
+    <bean id="idWorker" class="com.peng.pinyougou.util.IdWorker">
+    	<constructor-arg index="0" value="0"></constructor-arg>
+    	<constructor-arg index="1" value="0"></constructor-arg>
+    </bean> 
+    
+   
+</beans>
